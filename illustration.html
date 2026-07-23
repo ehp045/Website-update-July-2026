@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Illustration — Emily Phares</title>
+<meta name="description" content="Illustration by Emily Phares.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER — identical on every page. Note: this page
+     is intentionally not linked from the homepage or nav — reachable
+     only by direct URL. ============ -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="logo-block">
+      <a href="index.html" class="logo">Emily Phares</a>
+      <span class="squiggle" aria-hidden="true">
+        <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ ILLUSTRATION — EDIT: swap in your own pieces & images.
+       Add or remove <img> tags freely — the layout below (CSS columns,
+       see .illustration-grid in style.css) automatically scatters
+       whatever images you put in it, keeping even gaps between them
+       without forcing them to match sizes. ============ -->
+  <section class="section wrap">
+    <div class="illustration-page wrap">
+      <p class="eyebrow">Illustration</p>
+
+      <div class="illustration-grid">
+
+        <div class="illustration-col">
+          <button type="button" data-lightbox="images/eatsomefruit.png" aria-label="Enlarge illustration">
+            <img src="images/eatsomefruit.png" alt="Illustration titled 'eat some fruit' with a banana, strawberry, blueberries, orange, and cherries">
+          </button>
+          <button type="button" data-lightbox="images/kitchenstuff.png" aria-label="Enlarge illustration">
+            <img src="images/kitchenstuff.png" alt="Illustrated guide to kitchen tools, cutlery, and cookware, line drawing">
+          </button>
+          <button type="button" data-lightbox="images/steak_tartartist_border.jpg" data-caption="Steak tartartist" aria-label="Enlarge illustration: Steak tartartist">
+            <img src="images/steak_tartartist_border.jpg" alt="Illustration of a sandwich resting on a couch and a sandwich painting at an easel">
+          </button>
+        </div>
+
+        <div class="illustration-col">
+          <button type="button" data-lightbox="images/negroniandbologna.png" aria-label="Enlarge illustration">
+            <img src="images/negroniandbologna.png" alt="Illustration of a Negroni cocktail and a slice of bologna holding hands, titled 'Negroni & Bologna'">
+          </button>
+          <button type="button" data-lightbox="images/2023nypostcard_front_updated.png" aria-label="Enlarge illustration">
+            <img src="images/2023nypostcard_front_updated.png" alt="Illustration of a red picnic-style tablecloth set with plates, a pie, sardines, a baguette, flowers, and napkins">
+          </button>
+          <button type="button" data-lightbox="images/okrabench.png" aria-label="Enlarge illustration">
+            <img src="images/okrabench.png" alt="Illustration of an anthropomorphic okra sitting on a park bench reading a book">
+          </button>
+        </div>
+
+        <div class="illustration-col">
+          <button type="button" data-lightbox="images/NYpostcard_front_nomermaid.png" aria-label="Enlarge illustration">
+            <img src="images/NYpostcard_front_nomermaid.png" alt="Line drawing illustration of a New Orleans paddlewheel steamboat with a small crab on the water below">
+          </button>
+          <button type="button" data-lightbox="images/NYpostcard22_front.png" aria-label="Enlarge illustration">
+            <img src="images/NYpostcard22_front.png" alt="Colorful illustration reading 'Bonne Année' with a red high heel shoe">
+          </button>
+          <button type="button" data-lightbox="images/illo-winter-cabin.png" aria-label="Enlarge illustration">
+            <img src="images/illo-winter-cabin.png" alt="Illustration of a snowy log cabin at night, with a rabbit and pine tree in the snowdrifts outside">
+          </button>
+          <button type="button" data-lightbox="images/crab_updated.png" aria-label="Enlarge illustration">
+            <img src="images/crab_updated.png" alt="Colorful illustration of a red crab on a blue and yellow background">
+          </button>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIGHTBOX — for enlarging illustrations, see js/main.js ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged image">&times;</button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" id="lightbox-img">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+</main>
+
+<!-- ============ FOOTER — identical on every page ============ -->
+<footer class="site-footer">
+  <p class="meta">© 2026 Emily Phares</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

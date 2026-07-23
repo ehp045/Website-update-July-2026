@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Emily Phares</title>
+<meta name="description" content="Notes and shorter writing from Emily Phares.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="logo-block">
+      <a href="index.html" class="logo">Emily Phares</a>
+      <span class="squiggle" aria-hidden="true">
+        <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="section-tight wrap post-list-section">
+
+    <!--
+      ============ HOW TO ADD A NEW POST ============
+      1. Copy /blog/post-1.html to /blog/post-3.html (or any name)
+         and edit its title, date, and body text.
+      2. Copy one <li class="post-item"> block below, update the
+         title, date, excerpt, and the href to point at your new
+         file. Replace the empty .post-thumb square with a real
+         image once you have one, e.g.:
+         <div class="post-thumb"><img src="images/post-3.jpg" alt=""
+         style="width:100%;height:100%;object-fit:cover;"></div>
+      3. Newest posts should go at the top of the list.
+    -->
+
+    <div class="blog-note-panel">
+    <svg class="blog-note-wave" viewBox="0 0 200 64" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0.0 10.0 Q0.0 10.0 3.1 12.5 Q6.2 14.9 9.4 16.0 Q12.5 17.0 15.6 16.0 Q18.8 14.9 21.9 12.5 Q25.0 10.0 28.1 7.5 Q31.2 5.1 34.4 4.0 Q37.5 3.0 40.6 4.0 Q43.8 5.1 46.9 7.5 Q50.0 10.0 53.1 12.5 Q56.2 14.9 59.4 16.0 Q62.5 17.0 65.6 16.0 Q68.8 14.9 71.9 12.5 Q75.0 10.0 78.1 7.5 Q81.2 5.1 84.4 4.0 Q87.5 3.0 90.6 4.0 Q93.8 5.1 96.9 7.5 Q100.0 10.0 103.1 12.5 Q106.2 14.9 109.4 16.0 Q112.5 17.0 115.6 16.0 Q118.8 14.9 121.9 12.5 Q125.0 10.0 128.1 7.5 Q131.2 5.1 134.4 4.0 Q137.5 3.0 140.6 4.0 Q143.8 5.1 146.9 7.5 Q150.0 10.0 153.1 12.5 Q156.2 14.9 159.4 16.0 Q162.5 17.0 165.6 16.0 Q168.8 14.9 171.9 12.5 Q175.0 10.0 178.1 7.5 Q181.2 5.1 184.4 4.0 Q187.5 3.0 190.6 4.0 Q193.8 5.1 196.9 7.5 L200.0 10.0 L200.0 54.0 Q200.0 54.0 196.9 51.5 Q193.8 49.1 190.6 48.0 Q187.5 47.0 184.4 48.0 Q181.2 49.1 178.1 51.5 Q175.0 54.0 171.9 56.5 Q168.8 58.9 165.6 60.0 Q162.5 61.0 159.4 60.0 Q156.2 58.9 153.1 56.5 Q150.0 54.0 146.9 51.5 Q143.8 49.1 140.6 48.0 Q137.5 47.0 134.4 48.0 Q131.2 49.1 128.1 51.5 Q125.0 54.0 121.9 56.5 Q118.8 58.9 115.6 60.0 Q112.5 61.0 109.4 60.0 Q106.2 58.9 103.1 56.5 Q100.0 54.0 96.9 51.5 Q93.8 49.1 90.6 48.0 Q87.5 47.0 84.4 48.0 Q81.2 49.1 78.1 51.5 Q75.0 54.0 71.9 56.5 Q68.8 58.9 65.6 60.0 Q62.5 61.0 59.4 60.0 Q56.2 58.9 53.1 56.5 Q50.0 54.0 46.9 51.5 Q43.8 49.1 40.6 48.0 Q37.5 47.0 34.4 48.0 Q31.2 49.1 28.1 51.5 Q25.0 54.0 21.9 56.5 Q18.8 58.9 15.6 60.0 Q12.5 61.0 9.4 60.0 Q6.2 58.9 3.1 56.5 L0.0 54.0 Z"/>
+    </svg>
+    <p class="blog-note">
+      <svg class="icon-pencil-note" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.02 4.04 L3.98 5.96 L15.86 18.68 L19 20 L17.90 16.76 Z" fill="currentColor"/>
+        <line x1="8.22" y1="6.10" x2="5.88" y2="8.28" class="pencil-erase-gap"/>
+      </svg>
+      While I work on some new blog posts, here are some oldies but goodies.
+    </p>
+    </div>
+
+    <ul class="post-list">
+
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1402101476749-ROGTUKOM0IUBEF1EJ9MS/image-asset.jpeg?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-3.html">Batman &amp; the misguided food battle</a></h2>
+          <p class="meta">May 2, 2014</p>
+          <p>I don't watch much TV, but I did take in all of True Detective's (excellent) first season, and I'll admit to letting Scandal play in the background sometimes…</p>
+          <a href="blog/post-3.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1402189857196-93I4PXVBVXYP3KOFG1M8/image-asset.jpeg?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-4.html">The anti-diet era</a></h2>
+          <p class="meta">April 17, 2014</p>
+          <p>Growing up in the '80s, diet books were a cultural norm. Women were often "on" some regimen or another, usually dictated by whichever had been published most recently. Diet…</p>
+          <a href="blog/post-4.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1404211091541-LREUT4LBC67ZL2JKC9W2/image-asset.jpeg?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-5.html">The corporate side of cooking: Interview with Emery Whalen</a></h2>
+          <p class="meta">March 22, 2014</p>
+          <p>One of my favorite things is talking to "food people." When you think of food jobs, you usually think about the people preparing the food – whether executive…</p>
+          <a href="blog/post-5.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1402191757783-GP5K41V91TCKLQWNDVVL/image-asset.jpeg?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-6.html">More New Orleans nutrition with Molly Kimball (part 2)</a></h2>
+          <p class="meta">January 21, 2014</p>
+          <p>In part 1 of this interview with nutrition expert Molly Kimball, we covered daiquiris, gluten &amp; guilt, among other things. And in the week since posting that, I've…</p>
+          <a href="blog/post-6.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1402191984586-H4Q1QBAYNUVR4O5XLROI/kimball2.JPG?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-7.html">New Orleans nutrition with Molly Kimball (part 1)</a></h2>
+          <p class="meta">January 15, 2014</p>
+          <p>Now more than ever, you are what you eat. Food used to be a simple matter of sustenance. Now it's part of your identity. Are you eating local?…</p>
+          <a href="blog/post-7.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1583895365608-ELP1MGI1UNKHKKVDHIII/Untitled_Artwork.gif?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-8.html">Food labels: Rating "realness"</a></h2>
+          <p class="meta">July 17, 2013</p>
+          <p>Marion Nestle, Professor of Nutrition, Food Studies and Public Health at NYU, recently mentioned front-of-package labeling on her blog. This is a topic that's been discussed in the…</p>
+          <a href="blog/post-8.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1583855451027-K92WRDLSW1NYJGEC6ZNP/Untitled_Artwork+%281%29.png?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-9.html">Who's your health authority?</a></h2>
+          <p class="meta">March 18, 2013</p>
+          <p>The United States doesn't have a singular, strong food culture that acts as a national eating guide. This is great because we have a diversity of cuisines, but…</p>
+          <a href="blog/post-9.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1420160428130-60T35NPXFYP3NJR6D4MY/image-asset.jpeg?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-10.html">Fasting &amp; the French "absence of excess"</a></h2>
+          <p class="meta">March 10, 2013</p>
+          <p>Fasting is garnering attention lately as both a weight-loss method and health-promoting strategy. Granted, calorie-cutting has been considered the gold standard for weight loss for decades. Then we…</p>
+          <a href="blog/post-10.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1583425330574-WC6F0ZWBT0F5LWW1UY5L/Untitled_Artwork+%283%29.png?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-11.html">The food enjoyment equation</a></h2>
+          <p class="meta">February 23, 2013</p>
+          <p>You may wonder how I can espouse a view of no-rules, enjoy-your-food freedom, and subsequently launch into the world of nutrition science to examine optimal diets.</p>
+          <a href="blog/post-11.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+      <li class="post-item">
+        <div class="post-thumb" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/52dc1144e4b01e290ccf303c/1583425275786-TX0GCP2F674YEOBUGEPJ/Untitled_Artwork+%282%29.png?format=original" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="post-content">
+          <h2><a href="blog/post-12.html">Don't worry, eat happy</a></h2>
+          <p class="meta">February 18, 2013</p>
+          <p>A decade ago I read Michael Pollan's " Our National Eating Disorder " in The New York Times magazine. Pollan addressed Americans' food anxiety as a major—overlooked—part of…</p>
+          <a href="blog/post-12.html" class="wave-cta">
+            Read
+            <span class="squiggle squiggle--tomato" aria-hidden="true">
+              <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="meta">© 2026 Emily Phares</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

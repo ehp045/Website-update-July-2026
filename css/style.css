@@ -1,0 +1,911 @@
+/* =========================================================
+   SITE STYLESHEET — overview
+   ---------------------------------------------------------
+   1.  Design tokens — change colors/fonts/spacing here once
+   2.  Base / reset
+   3.  Typography (headers are tomato red site-wide)
+   4.  Layout helpers
+   5.  Header, logo + squiggle, nav
+   6.  Squiggle motif
+   7.  Buttons, text links & wave-CTA links
+   8.  Featured Work section + 3x3 grid (homepage)
+   9.  Three-block link section (homepage)
+   10. Cards & lists (Writing / Blog)
+   11. Tomato panels (About "At a Glance", Contact intro block)
+   12. Forms
+   13. Footer
+   14. Responsive
+   ========================================================= */
+
+/* ---------- 1. DESIGN TOKENS ---------- */
+:root {
+  --color-bg: #FAF8F2;        /* off-white page background */
+  --color-ink: #1A1A1A;       /* body text */
+  --color-ink-soft: #5A584F;  /* secondary / meta text — stays dark, not tomato */
+  --color-muted: #8A877C;
+
+  --color-blue: #22348C;      /* logo, nav */
+  --color-blue-dark: #16204F;
+
+  --color-tomato: #E1512F;    /* headers, accents, panels */
+  --color-tomato-dark: #C43E20;
+
+  --color-card: #FFFFFF;
+  --color-line: #E7E3D8;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --measure: 40rem;
+  --measure-wide: 72rem;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --space-6: 7rem;
+
+  --radius: 6px;
+}
+
+/* ---------- 2. BASE / RESET ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--color-blue); }
+a:hover { color: var(--color-blue-dark); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-tomato);
+  color: #fff;
+}
+
+/* ---------- 3. TYPOGRAPHY ---------- */
+/* Major headers are tomato red site-wide, never black.
+   Meta/caption text underneath stays dark grey (see .meta, .lede). */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  color: var(--color-tomato);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: clamp(2.1rem, 1.8rem + 1.8vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem); }
+
+p { margin: 0 0 var(--space-3); }
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  display: inline-block;
+  margin-bottom: var(--space-2);
+}
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--color-ink-soft);
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- 4. LAYOUT HELPERS ---------- */
+.wrap {
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.prose {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.section { padding-block: var(--space-5); }
+.section-tight { padding-block: var(--space-4); }
+
+/* ---------- 5. HEADER / LOGO / NAV ---------- */
+.site-header { padding-block: var(--space-3) var(--space-2); }
+
+.site-header__inner {
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.logo-block { display: inline-block; }
+
+.logo {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  text-decoration: none;
+  display: inline-block;
+}
+.logo:hover { color: var(--color-blue-dark); }
+
+.logo-block .squiggle {
+  display: block;
+  width: 132px;
+  margin-top: 0.35rem;
+  color: var(--color-blue);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0.3rem 0 0;
+}
+
+.site-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--color-blue-dark); }
+.site-nav a[aria-current="page"] { font-weight: 700; }
+
+/* ---------- 6. SQUIGGLE MOTIF ---------- */
+.squiggle { color: var(--color-blue); }
+.squiggle svg { display: block; width: 100%; height: auto; }
+.squiggle--tomato { color: var(--color-tomato); }
+
+/* ---------- 7. BUTTONS, TEXT LINKS & WAVE-CTA ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--color-blue);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--color-blue-dark); color: #fff; }
+
+.text-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-blue);
+  text-decoration: none;
+}
+.text-link:hover { color: var(--color-blue-dark); }
+.text-link::after { content: " →"; }
+
+/* Plain tomato-red link, no wave — used for "Read" on the Writing page */
+.link-tomato {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-tomato);
+  text-decoration: none;
+}
+.link-tomato:hover { color: var(--color-tomato-dark); }
+.link-tomato::after { content: " →"; }
+
+/* A link or button styled as tomato-red text with a small wave
+   underneath instead of a solid button — used for "Get in Touch",
+   "Send", and "Read" (on the Blog page). */
+.wave-cta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--color-tomato);
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+.wave-cta:hover { color: var(--color-tomato-dark); }
+.wave-cta .squiggle { width: 56px; color: var(--color-tomato); }
+.wave-cta--lg .squiggle { width: 92px; }
+.wave-cta--blue { color: var(--color-blue); }
+.wave-cta--blue:hover { color: var(--color-blue-dark); }
+.wave-cta--blue .squiggle { color: var(--color-blue); }
+
+/* ---------- 8. FEATURED WORK (homepage) ---------- */
+.featured {
+  background: var(--color-tomato);
+  padding-block: var(--space-4);
+  border-radius: var(--radius);
+}
+
+.featured h2,
+.featured .eyebrow { color: #fff; }
+.featured .lede { color: rgba(255,255,255,0.88); }
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.work-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-ink);
+  /* reset native <button> styling so illustration cards (buttons)
+     look identical to the article cards (links) */
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  /* every card is a true square — same width as height — with
+     anything that doesn't fit clipped off at the bottom */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.work-card .eyebrow { color: var(--color-tomato); margin-bottom: 0.5rem; }
+
+.work-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+
+.work-card p {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.work-card .text-link { margin-top: auto; }
+
+/* Article cards where the image fills the whole square and the
+   title/outlet sit on top of it, over a dark gradient for
+   legibility — EDIT: swap each .img-placeholder for a real <img>
+   once you have artwork, same as the illustration cards. */
+.work-card--has-image {
+  padding: 0;
+  position: relative;
+}
+.work-card--has-image .img-placeholder,
+.work-card--has-image > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  display: block;
+}
+.work-card--has-image .card-text {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  right: var(--space-2);
+  display: inline-block;
+  width: fit-content;
+  max-width: calc(100% - (var(--space-2) * 2));
+  padding: 0.5rem 0.65rem;
+  background: rgba(255,255,255,0.75);
+  border-radius: var(--radius);
+}
+
+.work-card--illustration { padding: 0; }
+.work-card--illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* for illustrations that aren't square originally — crop to fill
+   the square, biased toward the part of the artwork with the main
+   subject, so the rest gets trimmed off instead of split evenly */
+.work-card--illustration img.img-crop-top {
+  object-fit: cover;
+  object-position: center top;
+}
+.work-card--illustration img.img-crop-mostly-top {
+  object-fit: cover;
+  object-position: center 25%;
+}
+.work-card--illustration img.img-crop-left {
+  object-fit: cover;
+  object-position: left center;
+}
+.img-placeholder {
+  aspect-ratio: 4 / 3;
+  background: #EEF0F8;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Lightbox — click an illustration to see it enlarged, with the
+   card's caption (from data-caption) shown underneath */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(26,26,26,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+.lightbox[hidden] { display: none; }
+.lightbox-figure {
+  margin: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+}
+.lightbox-figure figcaption {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: var(--space-2);
+  text-align: center;
+}
+.lightbox-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.15); }
+
+/* ---------- 8b. ILLUSTRATION PAGE (not linked from nav) ---------- */
+/* Same tomato panel as Featured Work, but instead of a fixed 3x3
+   grid of equal squares, images keep their own natural proportions
+   and are scattered like cards laid down on a table — no two the
+   same size, but always an even gap between every piece. Achieved
+   with CSS columns: images stack down each column with a consistent
+   bottom margin, and column-gap keeps the same spacing sideways. */
+.illustration-page {
+  background: var(--color-tomato);
+  padding-block: var(--space-4);
+  border-radius: var(--radius);
+}
+.illustration-page .eyebrow { color: #fff; }
+
+.illustration-grid {
+  margin-top: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+.illustration-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1 1 0;
+  min-width: 0;
+}
+.illustration-grid button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.illustration-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 640px) {
+  .illustration-grid { flex-direction: column; }
+}
+
+/* ---------- 9. THREE-BLOCK LINK SECTION (homepage) ---------- */
+.block-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+.block-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.block-link p { color: var(--color-ink-soft); margin-bottom: var(--space-2); font-size: 0.98rem; }
+/* pinned to the same baseline across all three blocks, regardless
+   of how long each block's description text runs */
+.block-link .squiggle { width: 184px; margin-top: auto; }
+
+/* ---------- 10. CARDS & LISTS (Writing / Blog) ---------- */
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 0.22rem 0.6rem;
+  margin-bottom: var(--space-2);
+}
+.tag-blue { background: var(--color-blue); }
+.tag-tomato { background: var(--color-tomato); }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card h3 { margin-bottom: 0.4rem; }
+.card .meta { margin-bottom: var(--space-1); }
+.card .text-link { margin-top: auto; }
+
+/* Writing page list — set on a deep marigold panel, two columns,
+   no separating lines between entries */
+.writing-list-section { padding-top: 0.5rem; }
+.post-list-section { margin-top: 2rem; }
+.blog-note-panel {
+  display: inline-block;
+  position: relative;
+  border-radius: 0;
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-5);
+}
+.blog-note-wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.blog-note-wave path { fill: var(--color-tomato); }
+.blog-note {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  margin: 0;
+}
+.icon-pencil-note {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+}
+.pencil-erase-gap {
+  stroke: var(--color-tomato);
+  stroke-width: 1.3;
+}
+.writing-heading-section { padding-bottom: 0.5rem; }
+.writing-heading {
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.writing-columns {
+  display: flex;
+  gap: var(--space-3);
+  position: relative;
+}
+.writing-panel {
+  flex: 1 1 0;
+  background: var(--color-tomato);
+  padding: var(--space-4) var(--space-3);
+  border-radius: 0;
+  position: relative;
+}
+.writing-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.writing-item { padding: 0.75rem 0; }
+.writing-item h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+.writing-item h3 a { color: #fff; text-decoration: none; }
+.writing-item h3 a:hover { text-decoration: underline; }
+.writing-item p { margin: 0; color: rgba(255,255,255,0.85); }
+.writing-item .meta { color: rgba(255,255,255,0.85); }
+
+/* ---------- Decorative icons — playful, roughly-placed accents on
+   the Writing page panels. Positions are estimates (no way to
+   render and check pixel-for-pixel) — nudge top/left/right/bottom/
+   left values below if any land off from where the matching
+   article sits once viewed live. ---------- */
+.deco-icon { position: absolute; width: 58px; height: 58px; z-index: 2; }
+.deco-icon path,
+.deco-icon rect,
+.deco-icon circle { fill: currentColor; }
+.deco-icon .loop-ring { fill: none; stroke: currentColor; stroke-width: 1.3; }
+
+/* between "5 Anti-Inflammatory Supplements" and "...For Anxiety",
+   outside the left panel, crossing slightly onto its left edge —
+   wider viewBox (three pills), so sized accordingly */
+.icon-pills {
+  top: 4.5rem;
+  left: -3.4rem;
+  width: 52px;
+  height: 66px;
+  color: var(--color-tomato);
+  transform: rotate(-8deg);
+}
+/* inside the left panel, in the open space right of "Mushroom
+   Supplements" */
+.icon-mushroom {
+  top: 12.6rem;
+  right: 0.6rem;
+  color: #fff;
+  transform: rotate(14deg);
+}
+/* bottom center of the left panel, nudged slightly right of
+   center, crossing onto the bottom edge */
+.icon-carrot {
+  bottom: 0.4rem;
+  left: 62%;
+  color: #fff;
+  transform: translateX(-50%) rotate(42deg);
+}
+/* to the right of "Testing Glass Water Bottles", outside the
+   right panel, spaced further out — taller viewBox, sized to match */
+.icon-bottle {
+  top: 6.8rem;
+  right: -3rem;
+  width: 46px;
+  height: 68px;
+  color: var(--color-tomato);
+  transform: rotate(18deg);
+}
+/* to the right of the David Ludwig article, pulled inward off the
+   panel's edge — wide viewBox (dome + base) */
+.icon-bread {
+  top: 17.2rem;
+  right: 1rem;
+  width: 66px;
+  height: 58px;
+  color: #fff;
+  transform: rotate(-10deg);
+}
+/* bottom of the right panel, nudged slightly right of center,
+   for "The 7 Best Treadmills" article — wide viewBox (shoe profile) */
+.icon-shoe {
+  bottom: 1rem;
+  left: 56%;
+  width: 78px;
+  height: 44px;
+  color: #fff;
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+/* Blog list — each entry has a square thumbnail to the left,
+   as a fixed-size square to the left of each entry */
+.post-list { list-style: none; margin: 0; padding: 0; }
+.post-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+}
+.post-item:first-child { padding-top: 0; }
+
+.post-thumb {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  background: var(--color-tomato);
+  border-radius: var(--radius);
+}
+
+.post-content { flex: 1; min-width: 0; }
+.post-content h2 { margin-bottom: 0.3rem; font-size: 1.4rem; }
+.post-content h2 a { color: inherit; text-decoration: none; }
+.post-content .meta { margin-bottom: var(--space-2); }
+
+.post-body p { margin-bottom: var(--space-3); }
+.post-body h2 { margin-top: var(--space-4); }
+
+/* ---------- 11. TOMATO PANELS (About / Contact) ---------- */
+/* About page top row: a narrow "At a Glance" panel beside the
+   "Hello There" bio column — same overall height, more space
+   between them than a standard two-column grid. */
+.about-grid {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+.about-grid > .glance-card { flex: 0 0 340px; }
+.about-grid > .about-bio { flex: 1 1 0%; min-width: 0; }
+
+.glance-card {
+  position: relative;
+  color: #fff;
+  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-4);
+  background-color: var(--color-tomato);
+  border-radius: 0;
+}
+
+/* the "AT A GLANCE" title, set on a gentle arc instead of a
+   straight line; a plain (visually hidden) heading underneath
+   keeps it readable to screen readers */
+.glance-heading { display: block; width: 100%; height: auto; margin-bottom: var(--space-3); position: relative; }
+.glance-heading text {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  fill: #fff;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.glance-card .colophon { list-style: none; padding: 0; margin: 0; position: relative; }
+.glance-card .colophon li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.9rem 0;
+}
+.glance-card .colophon li span:first-child {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #fff;
+}
+.glance-card .colophon li span:last-child {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 400;
+}
+
+.about-illustration { margin-top: auto; }
+
+/* Contact page — "I'd love to help you", a hand-drawn-feeling
+   asymmetrical block rather than a plain rectangle */
+.organic-card {
+  background: var(--color-tomato);
+  color: #fff;
+  padding: var(--space-4) var(--space-3);
+  border-radius: 0;
+  align-self: start;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* "Let's work together" set on a gentle arc, same treatment as the
+   About page's "AT A GLANCE" — a plain (visually hidden) heading
+   underneath keeps it readable to screen readers */
+.card-heading-arc { display: block; width: 100%; height: auto; margin-bottom: var(--space-2); }
+.card-heading-arc text {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  fill: #fff;
+}
+.organic-card ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-2) 0 0;
+}
+.organic-card li {
+  padding: 0.65rem 0;
+}
+.organic-card li:first-child { padding-top: 0; }
+.organic-card .item-title {
+  display: block;
+  font-weight: 700;
+}
+.organic-card .item-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.9);
+}
+.icon-ribbon {
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+  margin-top: 0.1rem;
+}
+.icon-ribbon path,
+.icon-ribbon circle {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* ---------- 12. FORMS ---------- */
+.field { margin-bottom: var(--space-3); }
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.7rem 0.8rem;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  color: var(--color-ink);
+}
+.field input:focus,
+.field textarea:focus { border-color: var(--color-blue); }
+.field textarea { min-height: 9rem; resize: vertical; }
+
+.form-note { font-size: 0.8rem; color: var(--color-muted); margin-top: var(--space-2); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-5);
+}
+.contact-form-col { margin-left: 0; margin-top: 3.8rem; }
+.say-hi-heading { font-size: clamp(1.8rem, 1.5rem + 1.2vw, 2.4rem); }
+
+/* ---------- 13. FOOTER ---------- */
+.site-footer {
+  padding-block: var(--space-4) var(--space-4);
+  margin-top: var(--space-5);
+  text-align: center;
+}
+.site-footer .meta { margin: 0; }
+
+/* ---------- 14. RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .about-grid { flex-direction: column; }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .block-grid { grid-template-columns: 1fr 1fr; }
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle { display: inline-block; }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    margin-top: var(--space-2);
+  }
+  .site-nav.is-open { display: block; }
+  .site-nav ul { flex-direction: column; gap: var(--space-2); }
+  .site-header__inner { flex-wrap: wrap; }
+
+  .block-grid { grid-template-columns: 1fr; }
+  .writing-columns { flex-direction: column; }
+  .deco-icon { display: none; }
+  .work-grid { grid-template-columns: 1fr; }
+  .post-item { flex-direction: column; }
+  .post-thumb { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+}

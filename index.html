@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emily Phares — Writer</title>
+<meta name="description" content="Writing and illustration by Emily Phares.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER — identical on every page ============ -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="logo-block">
+      <a href="index.html" class="logo">Emily Phares</a>
+      <span class="squiggle" aria-hidden="true">
+        <svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ FEATURED WORK — EDIT: swap in your own pieces & images ============ -->
+  <section class="section wrap">
+    <div class="featured wrap">
+      <p class="eyebrow">Featured Work</p>
+
+      <div class="work-grid">
+
+        <a href="https://boston.eater.com/2016/8/31/12727540/joanne-chang-interview-food-philosophy" class="work-card work-card--has-image" target="_blank" rel="noopener noreferrer">
+          <img src="images/article-joanne-chang.jpg" alt="Bar seating and a mural inside a restaurant">
+          <div class="card-text">
+            <span class="eyebrow">Eater Boston</span>
+            <h3>Joanne Chang on Her Food Philosophy</h3>
+          </div>
+        </a>
+
+        <button type="button" class="work-card work-card--illustration" data-lightbox="images/illo-cookware.jpg" data-caption="Kitchen tool guide, illustration" aria-label="Enlarge illustration: Kitchen Tool Guide">
+          <img src="images/illo-cookware.jpg" alt="Illustrated guide to kitchen tools and cookware">
+        </button>
+
+        <a href="https://www.forbes.com/health/weight-loss/obesity-statistics/" class="work-card work-card--has-image" target="_blank" rel="noopener noreferrer">
+          <img src="images/article-obesity-stats.jpg" alt="A doctor reviewing a medical history checklist with a patient">
+          <div class="card-text">
+            <span class="eyebrow">Forbes</span>
+            <h3>Obesity Statistics and Facts In 2026</h3>
+          </div>
+        </a>
+
+        <button type="button" class="work-card work-card--illustration" data-lightbox="images/illo-sardines.jpg" data-caption="Don't forget the sardines, illustration" aria-label="Enlarge illustration: Don't Forget the Sardines">
+          <img src="images/illo-sardines.jpg" alt="Illustration of a tin of sardines, 'don't forget the'">
+        </button>
+
+        <a href="https://www.bostonmagazine.com/health/2014/09/05/american-cook-in-paris-aaron-rosenthal/" class="work-card work-card--has-image" target="_blank" rel="noopener noreferrer">
+          <img src="images/article-american-cook-paris.jpg" alt="A picnic spread of French market produce and food">
+          <div class="card-text">
+            <span class="eyebrow">Boston Magazine</span>
+            <h3>An American Cook in Paris</h3>
+          </div>
+        </a>
+
+        <button type="button" class="work-card work-card--illustration" data-lightbox="images/freshcollective_updated.png" data-caption="Freelance illustration" aria-label="Enlarge illustration: The Fresh Collective">
+          <img class="img-crop-mostly-top" src="images/freshcollective_updated.png" alt="Illustration of a hand holding a lemon, The Fresh Collective">
+        </button>
+
+        <a href="https://www.forbes.com/health/weight-loss/loose-skin-after-weight-loss/" class="work-card work-card--has-image" target="_blank" rel="noopener noreferrer">
+          <img src="images/article-strength-training.jpg" alt="Two people doing strength training exercises on the floor">
+          <div class="card-text">
+            <span class="eyebrow">Forbes</span>
+            <h3>How To Tighten Loose Skin After Weight Loss</h3>
+          </div>
+        </a>
+
+        <button type="button" class="work-card work-card--illustration" data-lightbox="images/dateoutdoors.png" data-caption="The Date Outdoors, illustration for Eater" aria-label="Enlarge illustration: The Date Outdoors">
+          <img class="img-crop-top" src="images/dateoutdoors.png" alt="Illustration titled 'The Date Outdoors' featuring a picnic spread of bread, cheese, cider, and strawberries">
+        </button>
+
+        <a href="https://www.forbes.com/health/supplements/supplements-lower-blood-pressure/" class="work-card work-card--has-image" target="_blank" rel="noopener noreferrer">
+          <img src="images/article-blood-pressure.jpg" alt="A blood pressure monitor cuff and reading device">
+          <div class="card-text">
+            <span class="eyebrow">Forbes</span>
+            <h3>Supplements To Lower Blood Pressure</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIGHTBOX — for enlarging illustrations, see js/main.js ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged image">&times;</button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" id="lightbox-img">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ THREE LINK BLOCKS — EDIT: destinations & copy ============ -->
+  <section class="section-tight wrap">
+    <div class="block-grid">
+
+      <a href="writing.html" class="block-link">
+        <h3>More writing</h3>
+        <p>A portfolio, if you will</p>
+        <span class="squiggle" aria-hidden="true">
+          <svg viewBox="0 0 200 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8 C 108 -1, 117 17, 125 8 C 133 -1, 142 17, 150 8 C 158 -1, 167 17, 175 8 C 183 -1, 192 17, 198 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="illustration.html" class="block-link">
+        <h3>A lotta illos</h3>
+        <p>Drawing for fun + freelance</p>
+        <span class="squiggle" aria-hidden="true">
+          <svg viewBox="0 0 200 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8 C 108 -1, 117 17, 125 8 C 133 -1, 142 17, 150 8 C 158 -1, 167 17, 175 8 C 183 -1, 192 17, 198 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="blog.html" class="block-link">
+        <h3>Blogging is back</h3>
+        <p>Just like land lines</p>
+        <span class="squiggle" aria-hidden="true">
+          <svg viewBox="0 0 200 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8 C 8 -1, 17 17, 25 8 C 33 -1, 42 17, 50 8 C 58 -1, 67 17, 75 8 C 83 -1, 92 17, 98 8 C 108 -1, 117 17, 125 8 C 133 -1, 142 17, 150 8 C 158 -1, 167 17, 175 8 C 183 -1, 192 17, 198 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER — identical on every page ============ -->
+<footer class="site-footer">
+  <p class="meta">© 2026 Emily Phares</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
