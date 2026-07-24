@@ -729,7 +729,7 @@ p { margin: 0 0 var(--space-3); }
   gap: var(--space-5);
   align-items: flex-start;
 }
-.about-grid > .glance-card { flex: 0 0 340px; }
+.about-grid > .glance-card { flex: 0 0 410px; }
 .about-grid > .about-bio { flex: 1 1 0%; min-width: 0; }
 
 .glance-card {
