@@ -503,6 +503,8 @@ p { margin: 0 0 var(--space-3); }
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
   align-items: stretch;
+  margin-left: 7.5rem;
+  margin-top: -3rem;
 }
 
 .block-link {
@@ -516,6 +518,8 @@ p { margin: 0 0 var(--space-3); }
 /* pinned to the same baseline across all three blocks, regardless
    of how long each block's description text runs */
 .block-link .squiggle { width: 184px; margin-top: auto; }
+.block-link:nth-child(2) { margin-left: 0.75rem; }
+.block-link:nth-child(3) { margin-left: 0.75rem; }
 
 /* ---------- 10. CARDS & LISTS (Writing / Blog) ---------- */
 .tag {
