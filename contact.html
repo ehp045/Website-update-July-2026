@@ -82,20 +82,15 @@
         <h2 class="say-hi-heading">Say hi</h2>
 
         <!--
-          This form currently opens the visitor's own email app with
-          the message pre-filled — that works with zero setup, but it
-          depends on the visitor having an email client configured.
-
-          For a form that submits without leaving the page, sign up
-          for a free service like Formspree (formspree.io) and
-          replace the form's "action" attribute below with the
-          endpoint they give you, for example:
-
-            <form action="https://formspree.io/f/yourFormId" method="POST">
-
-          Full instructions are in README.md.
+          This form submits via Netlify Forms — since this site is
+          already deployed on Netlify, submissions get routed
+          straight to your Netlify dashboard (and can email you each
+          one) with no third-party service or JavaScript needed.
+          The data-netlify="true" attribute and hidden form-name
+          field below are what Netlify looks for at deploy time.
         -->
-        <form class="contact-form" action="mailto:emilyphares@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="Name" required>
